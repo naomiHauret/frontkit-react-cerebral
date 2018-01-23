@@ -31,7 +31,7 @@
 		"js:format": "npm run js:prettify && npm run js:lint",
 		"format": "npm run prettify && npm run lint",
 		"precommit": "lint-staged",
-		"storybook": "npx start-storybook -p 9003 -c .storybook",
+		"storybook": "npx start-storybook -p 9009 -c .storybook",
 		"test": "npx jest",
 		"test:update": "npx jest -u",
 		"test:watch": "npx jest --watch",
