@@ -13,10 +13,11 @@ const Button = ({ label, handleClick }) => (
 		{label}
 	</button>
 )
+const StyledButton = CSSModules(Button, styles)
 
-Button.propTypes = {
+StyledButton.propTypes = {
 	label: propTypes.string,
 	handleClick: propTypes.func,
 }
 
-export default CSSModules(Button, styles)
+export default StyledButton
