@@ -1,0 +1,29 @@
+/*
+    VENDORS
+*/
+/*
+    Normalize
+*/
+@import "./../../../node_modules/normalize.css/normalize.css";
+
+/*
+    Utilities classes generated in tailwind.js
+*/
+@tailwind utilities;
+
+/*
+    LOCAL
+*/
+:root {
+	/* stylelint-disable unit-whitelist */
+	--fontSizeBase: 16px;
+	/* stylelint-enable */
+}
+
+html {
+	font-size: var(--fontSizeBase) !important;
+}
+
+body {
+	font-size: 1rem !important;
+}

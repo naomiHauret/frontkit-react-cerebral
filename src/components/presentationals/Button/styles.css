@@ -1,0 +1,8 @@
+:root {
+	--test: pink;
+}
+
+.module-style-test {
+	color: var(--test);
+	padding: 1.5rem;
+}

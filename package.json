@@ -1,0 +1,156 @@
+{
+	"name": "frontkit",
+	"version": "1.0.0",
+	"description": "A starter front stack for a React app. Includes configurable Webpack config (dev & prod), formatter and linter, Storybook, tests (via Jest+Enzyme), PostCSS (with CSSNext and imports), Atomic CSS (via TailwindCSS) and CSS-Modules.",
+	"main": "index.js",
+	"keywords": [
+		"react",
+		"storybook",
+		"webpack",
+		"front-end",
+		"front",
+		"javascript",
+		"js",
+		"boilerplate",
+		"css"
+	],
+	"scripts": {
+		"start": "npm run dev:start",
+		"dev:start": "npm run dev:build && npm run dev:wds",
+		"dev:build": "npx webpack --config webpack.dev.js",
+		"dev:wds": "npx webpack-dev-server --config webpack.dev.js",
+		"prod:build": "npx webpack --config webpack.prod.js",
+		"prod:test": "npm run prod:build && npm run dev:wds",
+		"js:prettify": "npx prettier --parser=babylon --write \"src/**/*.{js,jsx}\"",
+		"css:prettify": "npx prettier --parser=css --write \"src/**/*.css\"",
+		"prettify": "npm run js:prettify && npm run css:prettify",
+		"css:lint": "npx stylelint \"src/**/*.css\" --fix",
+		"js:lint": "npx eslint \"src/**/*.js\" --fix",
+		"lint": "npm run css:lint && npm run js:lint",
+		"css:format": "npm run css:prettify && npm run css:lint",
+		"js:format": "npm run js:prettify && npm run js:lint",
+		"format": "npm run prettify && npm run lint",
+		"precommit": "lint-staged",
+		"storybook": "npx start-storybook -p 9003 -c .storybook",
+		"test": "npx jest",
+		"test:update": "npx jest -u",
+		"test:watch": "npx jest --watch",
+		"test:coverage": "npx jest --coverage"
+	},
+	"author": "Naomi Hauret",
+	"license": "MIT",
+	"browserslist": {
+		"production": [
+			"last 2 versions",
+			"> 1%",
+			"not ie <=10",
+			"not ie_mob <=11",
+			"not bb <=10",
+			"not op_mob <= 37",
+			"not samsung <= 7"
+		],
+		"development": [
+			"last 1 version",
+			"> 3%"
+		]
+	},
+	"lint-staged": {
+		"**/*.{js,jsx}": [
+			"npx prettier --parser=babylon --write \"src/**/*.js\"",
+			"npx eslint \"src/**/*.js\" --fix"
+		],
+		"src/**/*.test.js": [
+			"npx prettier --parser=babylon --write \"src/**/*.js\"",
+			"npx eslint \"src/**/*.js\" --fix",
+			"npx jest"
+		],
+		"**/*.css": [
+			"npx prettier --parser=css --write \"src/**/*.css\"",
+			"npx stylelint --fix \"src/**/*.css\"",
+			"git add"
+		]
+	},
+	"jest": {
+		"setupFiles": [
+			"./jest.setup.js"
+		],
+		"snapshotSerializers": [
+			"enzyme-to-json/serializer"
+		],
+		"moduleNameMapper": {
+			"^.+\\.css$": "identity-obj-proxy"
+		}
+	},
+	"dependencies": {
+		"babel-polyfill": "^6.26.0",
+		"babel-preset-react": "^6.24.1",
+		"browserslist": "^2.11.3",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"react-helmet": "^5.2.0",
+		"react-hot-loader": "^3.1.3",
+		"react-router": "^4.2.0",
+		"react-router-dom": "^4.2.2"
+	},
+	"devDependencies": {
+		"@storybook/addon-a11y": "^3.3.10",
+		"@storybook/addon-backgrounds": "^3.3.10",
+		"@storybook/addon-console": "^1.0.0",
+		"@storybook/addon-info": "^3.3.10",
+		"@storybook/addon-knobs": "^3.3.10",
+		"@storybook/addons": "^3.3.10",
+		"@storybook/react": "^3.3.10",
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.0",
+		"babel-jest": "^22.1.0",
+		"babel-loader": "^7.1.2",
+		"babel-plugin-transform-react-inline-elements": "^6.22.0",
+		"babel-preset-env": "^1.6.1",
+		"clean-webpack-plugin": "^0.1.17",
+		"css-loader": "^0.28.9",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
+		"enzyme-to-json": "^3.3.0",
+		"eslint": "^4.16.0",
+		"eslint-config-prettier": "^2.9.0",
+		"eslint-config-standard": "^11.0.0-beta.0",
+		"eslint-config-standard-react": "^5.0.0",
+		"eslint-plugin-import": "^2.8.0",
+		"eslint-plugin-jsx-a11y": "^6.0.3",
+		"eslint-plugin-node": "^5.2.1",
+		"eslint-plugin-prettier": "^2.5.0",
+		"eslint-plugin-promise": "^3.6.0",
+		"eslint-plugin-react": "^7.5.1",
+		"eslint-plugin-standard": "^3.0.1",
+		"extract-text-webpack-plugin": "^3.0.2",
+		"file-loader": "^1.1.6",
+		"glob-all": "^3.1.0",
+		"html-webpack-plugin": "^2.30.1",
+		"husky": "^0.14.3",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^22.1.4",
+		"json": "^9.0.6",
+		"lint-staged": "^6.0.1",
+		"loki": "^0.9.1",
+		"normalize.css": "^7.0.0",
+		"postcss": "^6.0.16",
+		"postcss-cssnext": "^3.1.0",
+		"postcss-easy-import": "^3.0.0",
+		"postcss-loader": "^2.0.10",
+		"prettier": "^1.10.2",
+		"purifycss-extended": "^1.3.6",
+		"purifycss-extended-webpack": "^0.7.1",
+		"react-css-modules": "^4.7.1",
+		"react-test-renderer": "^16.2.0",
+		"storybook-addon-smart-knobs": "^3.3.1",
+		"style-ext-html-webpack-plugin": "^3.4.7",
+		"style-loader": "^0.19.1",
+		"stylelint": "^8.4.0",
+		"stylelint-config-standard": "^18.0.0",
+		"tailwindcss": "^0.4.1",
+		"uglifyjs-webpack-plugin": "^1.1.6",
+		"webpack": "^3.10.0",
+		"webpack-dev-server": "^2.11.1",
+		"webpack-merge": "^4.1.1"
+	}
+}

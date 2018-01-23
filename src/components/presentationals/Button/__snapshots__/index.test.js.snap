@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`click event working 1`] = `
+<button
+  className="bg-black sm:bg-green md:bg-yellow lg:bg-blue xl:bg-white text-red module-style-test"
+  data-react="rButton"
+>
+  Hey
+</button>
+`;
+
+exports[`click event working 2`] = `
+<button
+  className="bg-black sm:bg-green md:bg-yellow lg:bg-blue xl:bg-white text-red module-style-test"
+  data-react="rButton"
+>
+  Hey
+</button>
+`;
+
+exports[`render itself 1`] = `
+<button
+  className="bg-black sm:bg-green md:bg-yellow lg:bg-blue xl:bg-white text-red module-style-test"
+  data-react="rButton"
+/>
+`;
